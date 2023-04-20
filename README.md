@@ -1,13 +1,4 @@
----
-title:  "Pie Chart in R"
-mathjax: true
-layout: post
-categories: media
----
-
-![]()
-
-
+# Pie Chart
 
 In this tutorial, I will demonstrate how to create a __pie chart__ using the __`ggplot2` and `ggrepel` packages in R__. A pie chart is a type of chart that __displays numerical proportions of a variable in polar coordinates__, similar to a bar chart. However, unlike a bar chart, a pie chart focuses on displaying percentages rather than raw counts. To create the chart, I will use the publicly available [National Cancer Database (NCDB)](https://www.facs.org/quality-programs/cancer-programs/national-cancer-database/) to display the percentage of combinations of race and ethnicity with the type of cancer facility.
 
@@ -22,7 +13,7 @@ After data cleaning, the dataset I used to create pie charts includes four varia
 
 - `Percentage`: this is a numerical variable that is used to indicate a __percentage for patients in the combination of `Type` and `Origin`__ (numerical)
 
-![]()
+![](https://github.com/YzwIsALaity/Pie-Chart-In-R/blob/61e7079d53ad1ee2cfd12679d3ac7ead93f7ed9d/Dataset%201.png)
 
 I will use this simple dataset to first create a single pie chart for `Mexican` patients, and then multiple pie charts for the other patients. First, I will __create a variable to display percentage labels in a pie chart__. I will __use the `paste0()` function to concatenate the numerical value of the `Percentage` with a percentage sign (%), and store the result as a string variable__. And then I will set `Origin` and `Type` as factors.
 
@@ -55,7 +46,7 @@ __Here, I arranged the dataset by `Origin` and sorted it in decreasing order bas
 
 __An original bar plot from `geom_bar()` or `geom_col()` stacks rectangles for stratified variables vertically, and I plan to place the `Percentage.Label` in the middle of each rectangle__. 
 
-![]()
+![](https://github.com/YzwIsALaity/Pie-Chart-In-R/blob/61e7079d53ad1ee2cfd12679d3ac7ead93f7ed9d/Bar%20Chart.png)
 
 This can be done by first grouping the data frame by the `Origin` variable, and then subtracting half of the `Percentage` from the cumulative sum of `Percentage` for each `Origin`.
 
@@ -70,7 +61,7 @@ Dt.PieChart <-
 head(Dt.PieChart)
 ```
 
-![]()
+![](https://github.com/YzwIsALaity/Pie-Chart-In-R/blob/61e7079d53ad1ee2cfd12679d3ac7ead93f7ed9d/Dataset%202.png)
 
 `Dt.PieChart` will be used to create pie charts!
 
@@ -123,7 +114,7 @@ ggplot(Dt.Mexican,
         strip.background = element_blank())
 ```
 
-![]()
+![](https://github.com/YzwIsALaity/Pie-Chart-In-R/blob/61e7079d53ad1ee2cfd12679d3ac7ead93f7ed9d/Single%20Pie%20Chart.png)
 
 # 3. Multiple pies
 For multiple pie charts, we will need to use `facet_grid()` functions to form a matrix of panels defined by row and column faceting variables.
@@ -157,6 +148,6 @@ ggplot(Dt.PieChart,
 
 ```
 
-![]()
+![](https://github.com/YzwIsALaity/Pie-Chart-In-R/blob/61e7079d53ad1ee2cfd12679d3ac7ead93f7ed9d/Multiple%20Pie%20Chart.png)
 
 Here we go!
